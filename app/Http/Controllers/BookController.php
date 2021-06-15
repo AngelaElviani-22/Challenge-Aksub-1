@@ -4,20 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Author;
 
 class BookController extends Controller
 {
     public function index(){
-        return view('create');
+        $authors = Author::all();
+        return view('create', compact('authors'));
     }
 
     public function store(Request $request) {
         Book::create([
             'title' => $request-> book_title,
+            'author_id'=>$request-> author_id,
             'description' => $request-> desc,
             'price' => $request-> price
         ]);
-        return redirect('/');
+        return redirect('/book');
     }
 
     public function listBook(){

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Hadiah Aksub</title>
+        <title>Author</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,28 +19,16 @@
     </head>
     <body class="antialiased">
         <div class="container">
-            <form action="{{route('book.create')}}" method="POST">
+            <form action="{{route('author.store')}}" method="POST">
                 @csrf
-                <div class="mb-3 mt-5">
-                  <label for="exampleInputPassword1" class="form-label">Company</label>
-                  <select name="author_id" id="" class="form-control">
-                    @foreach($authors as $author)
-                    <option value="{{$author->id}}">{{$author->name}}</option>
-                    @endforeach
-                  </select>
+                <div class="mb-3">
+                  <label class="form-label">Author Name</label>
+                  <input name="name" class="form-control">
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">Book Title</label>
-                  <input name="book_title" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <input name="desc" class="form-control">
+                    <label class="form-label">Address</label>
+                    <textarea name="address" class="form-control"></textarea>
                   </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Price</label>
-                  <input name="price" class="form-control" type="number">
-                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
         </div>
